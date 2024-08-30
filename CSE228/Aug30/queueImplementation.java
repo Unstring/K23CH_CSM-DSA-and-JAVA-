@@ -37,7 +37,15 @@ class customQueue{
     }
 
     public void print(){
-        
+        System.out.print("[");
+        for (int i = 0; i < size; i++) {
+            if(i == size - 1){
+                System.out.print(queue[i]);
+            } else  {
+                System.out.print(queue[i] + ", ");
+            }
+        }
+        System.out.println("]");
     }
 }
 
@@ -47,6 +55,8 @@ public class queueImplementation {
         queue.enqueue(100);
         queue.enqueue(200);
         queue.enqueue(300);
-        System.out.println("Queue peek: " + queue.peek());
+        queue.print();
+        queue.dequeue();
+        queue.print();
     }
 }
