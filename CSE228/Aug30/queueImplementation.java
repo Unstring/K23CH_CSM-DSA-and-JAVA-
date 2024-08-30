@@ -27,10 +27,26 @@ class customQueue{
     public int peek(){
         return queue[0];
     }
+
+    public boolean isEmpty(){
+        return size == 0;
+    }
+    
+    public boolean isFull(){
+        return size == maxSize;
+    }
+
+    public void print(){
+        
+    }
 }
 
 public class queueImplementation {
     public static void main(String[] args) {
-        
+        customQueue queue = new customQueue(10);
+        queue.enqueue(100);
+        queue.enqueue(200);
+        queue.enqueue(300);
+        System.out.println("Queue peek: " + queue.peek());
     }
 }
