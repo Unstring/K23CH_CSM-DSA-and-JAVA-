@@ -10,12 +10,20 @@ class customQueue{
     }
 
     public boolean enqueue(int value){
+        if(isFull()){
+            System.out.println("Queue is full. Cannot enqueue.");
+            return false;
+        }
         queue[size] = value;
         size++;
         return true;
     }
 
     public int dequeue(){
+        if(isEmpty()){
+            System.out.println("Queue is empty. Cannot dequeue.");
+            return -1;
+        }
         int value = queue[0];
         for(int i = 0; i < size - 1; i++){
             queue[i] = queue[i+1];
@@ -25,6 +33,10 @@ class customQueue{
     }
 
     public int peek(){
+        if(isEmpty()){
+            System.out.println("Queue is empty. Cannot peek.");
+            return -1;
+        }
         return queue[0];
     }
 
