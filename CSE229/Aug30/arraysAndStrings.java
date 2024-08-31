@@ -1,7 +1,7 @@
 public class arraysAndStrings {
     public static void main(String[] args) {
         String st =  new String("hello world");
-        String str = "hello world";
+        String str = st;
         String str1 = "hello world";
         String str2 = str;
 
@@ -31,5 +31,12 @@ public class arraysAndStrings {
         System.out.println(str == str1);
         System.out.println(str == str2);
         System.out.println(str1 == str2);
+
+
+        // discuss few very popular and frequently used methods in java
+
+        boolean bl = str1.equals(st);
+        System.out.println(bl);
+        
     }
 }
