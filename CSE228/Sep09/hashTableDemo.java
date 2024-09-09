@@ -1,4 +1,5 @@
 import java.util.Hashtable;
+import java.util.Set;
 
 
 public class hashTableDemo {
@@ -11,20 +12,22 @@ public class hashTableDemo {
         table.put(58, "Komal");
         table.put(38, "Praneeth");
 
-        System.out.println(table);
+        // System.out.println(table);
 
-        table.put(38, "Unnamed");
+        // table.put(38, "Unnamed");
 
-        System.out.println(table);
+        // System.out.println(table);
 
-        String valueForRoll34 = table.get(34);
+        // String valueForRoll34 = table.get(34);
 
-        System.out.println("Roll " + 34 + " Name: " + valueForRoll34);
+        // System.out.println("Roll " + 34 + " Name: " + valueForRoll34);
 
-        int s = table.size();
+        // int s = table.size();
 
-        System.out.println("Size of table is: " + s);
+        // System.out.println("Size of table is: " + s);
 
+        Set<Integer> keys = table.keySet();
         
+        System.out.println(keys);
     }
 }
