@@ -9,15 +9,28 @@ class contactBook{
     }
 
     public void searchContact(String str){
-        System.out.println("Searching contact!");
+
+        int counter = 0;
+
+        for (String key : contacts.keySet()) {
+            if(key.contains(str)){
+                System.out.println(key + ": " + contacts.get(key));
+            }
+        }
+
+        if(counter != 0){
+            System.out.println(counter + ": contacts found");
+        } else {
+            System.out.println("contact not found!");
+        }
     }
 
     public void deleteContact(String name){
-        System.out.println("Will delete the contact!");
+        contacts.remove(name);
     }
 
     public void updateContact(String name, String number){
-        System.out.println("will update the contact!");
+        contacts.put(name, number);
     }
 
     public void displayContacts(){
@@ -31,6 +44,7 @@ public class firstConsoleApp {
         contactBook cb = new contactBook();
 
         System.out.println("this is a REPL app for contacts using java!\nacceptable commands are 'add', 'remove', 'update', 'view', 'search' and 'exit' ");
+        System.out.print("\n>>>");
 
         String command;
 
@@ -42,6 +56,7 @@ public class firstConsoleApp {
             switch (command) {
                 case "exit":
                     System.out.println("thank you for using this contacts application!");
+                    System.out.print("\n>>>");
                     return;
                 case "add":
                     System.out.println("please enter the name: ");
@@ -50,27 +65,33 @@ public class firstConsoleApp {
                     String number = scn.nextLine();
                     cb.addContact(name, number);
                     System.out.println("name: " + name + " phone: " + number + " saved in contact book!");
+                    System.out.print("\n>>>");
                     break;
                 case "remove":
                     System.out.println("please Enter the name of the contact you want to remove");
                     name = scn.nextLine();
                     cb.deleteContact(name);
                     System.out.println("contact for " + name + " removed!");
+                    System.out.print("\n>>>");
                     break;
                 case "update":
                     System.out.println("please enter the name of the contact you want to update");
+                    System.out.print("\n>>>");
                     break;
                 case "view":
                     System.out.println("here is all the contacts!");
                     cb.displayContacts();
+                    System.out.print("\n>>>");
                     break;
                 case "search":
                     System.out.println("please enter the keyword you want to search for!");
                     String str = scn.nextLine();
                     cb.searchContact(str);
+                    System.out.print("\n>>>");
                     break;
                 default:
                     System.out.println("Invalid command please enter a right command!");
+                    System.out.print("\n>>>");
                     break;
             }
         }
