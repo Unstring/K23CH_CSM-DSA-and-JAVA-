@@ -2,30 +2,78 @@ import java.util.Hashtable;
 import java.util.Scanner;
 
 class contactBook{
-    
+    Hashtable<String, String> contacts = new Hashtable<String, String>();
+
+    public void addContact(String name, String number){
+        contacts.put(name, number);
+    }
+
+    public void searchContact(String str){
+        System.out.println("Searching contact!");
+    }
+
+    public void deleteContact(String name){
+        System.out.println("Will delete the contact!");
+    }
+
+    public void updateContact(String name, String number){
+        System.out.println("will update the contact!");
+    }
+
+    public void displayContacts(){
+        System.out.println(contacts);
+    }
 }
 
 public class firstConsoleApp {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
-        Hashtable<String, String> contacts = new Hashtable<String, String>();
+        contactBook cb = new contactBook();
 
-        System.out.println("How many contacts you want to save enter a number: ");
+        System.out.println("this is a REPL app for contacts using java!\nacceptable commands are 'add', 'remove', 'update', 'view', 'search' and 'exit' ");
 
-        int numberOfContacts = scn.nextInt();
+        String command;
 
-        scn.nextLine(); // to consume newline character left by nextInt() method.
+        while (true) {
+            command = scn.next().toLowerCase();
 
-        for (int i = 0; i < numberOfContacts; i++) {
-            System.out.println("Enter the name of user" + (i + 1) + ": ");
-            String Name = scn.nextLine();
-            System.out.println("Enter the Number of the same user" + (i + 1) + ": ");
-            String Number = scn.nextLine();
-
-            contacts.put(Name, Number);
+            scn.nextLine();
+            
+            switch (command) {
+                case "exit":
+                    System.out.println("thank you for using this contacts application!");
+                    return;
+                case "add":
+                    System.out.println("please enter the name: ");
+                    String name = scn.nextLine();
+                    System.out.println("please enter the phone number");
+                    String number = scn.nextLine();
+                    cb.addContact(name, number);
+                    System.out.println("name: " + name + " phone: " + number + " saved in contact book!");
+                    break;
+                case "remove":
+                    System.out.println("please Enter the name of the contact you want to remove");
+                    name = scn.nextLine();
+                    cb.deleteContact(name);
+                    System.out.println("contact for " + name + " removed!");
+                    break;
+                case "update":
+                    System.out.println("please enter the name of the contact you want to update");
+                    break;
+                case "view":
+                    System.out.println("here is all the contacts!");
+                    cb.displayContacts();
+                    break;
+                case "search":
+                    System.out.println("please enter the keyword you want to search for!");
+                    String str = scn.nextLine();
+                    cb.searchContact(str);
+                    break;
+                default:
+                    System.out.println("Invalid command please enter a right command!");
+                    break;
+            }
         }
-        scn.close();
-
-        System.out.println("Your contact list: \n" + contacts);
+        
     }
 }
