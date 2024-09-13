@@ -4,8 +4,14 @@ import java.util.Scanner;
 class contactBook{
     Hashtable<String, String> contacts = new Hashtable<String, String>();
 
-    public void addContact(String name, String number){
-        contacts.put(name, number);
+    public boolean addContact(String name, String number){
+        if (contacts.containsKey(name)) {
+            System.out.println("contact name already exists!");
+            return false;
+        }else{
+            contacts.put(name, number);
+            return true;
+        }
     }
 
     public void searchContact(String str){
@@ -63,8 +69,10 @@ public class firstConsoleApp {
                     String name = scn.nextLine();
                     System.out.println("please enter the phone number");
                     String number = scn.nextLine();
-                    cb.addContact(name, number);
-                    System.out.println("name: " + name + " phone: " + number + " saved in contact book!");
+                    boolean cba = cb.addContact(name, number);
+                    if (cba) {
+                        System.out.println("name: " + name + " phone: " + number + " saved in contact book!");
+                    }
                     System.out.print("\n>>>");
                     break;
                 case "remove":
@@ -76,6 +84,10 @@ public class firstConsoleApp {
                     break;
                 case "update":
                     System.out.println("please enter the name of the contact you want to update");
+                    name = scn.nextLine();
+                    System.out.println("please enter the new phone number");
+                    number = scn.nextLine();
+                    cb.updateContact(name, number);
                     System.out.print("\n>>>");
                     break;
                 case "view":
