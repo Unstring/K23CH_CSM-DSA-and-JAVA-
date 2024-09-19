@@ -1,8 +1,10 @@
 import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Scanner;
 
 class contactBookHelper{
-    Hashtable<String, String> contacts = new Hashtable<String, String>();
+    // Hashtable<String, String> contacts = new Hashtable<String, String>();
+    HashMap<String, String> contacts = new HashMap<String, String>();
 
     public boolean addContact(String name, String number){
         if (contacts.containsKey(name)) {
@@ -22,6 +24,10 @@ class contactBookHelper{
 
         for (String key : contacts.keySet()) {
             if(key.contains(str)){
+                System.out.println(key + ": " + contacts.get(key));
+                counter++;
+            }
+            if(contacts.get(key).contains(str)){
                 System.out.println(key + ": " + contacts.get(key));
                 counter++;
             }
@@ -127,6 +133,5 @@ public class contactBook {
                     break;
             }
         }
-        
     }
 }
