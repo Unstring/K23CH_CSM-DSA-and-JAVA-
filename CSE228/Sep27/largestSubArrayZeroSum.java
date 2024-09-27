@@ -1,12 +1,22 @@
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class largestSubArrayZeroSum {
     public static void main(String[] args) {
-        
-        int[] arr = {8, -2, 2, 1, 7, -8, 20, 23};
+        Scanner scn = new Scanner(System.in);
+        // int[] arr = {8, -2, 2, 1, 7, -8, 20, 23};
+        System.out.println("please enter the length of the main array first:");
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("please enter the element at index " + i);
+            arr[i] = scn.nextInt();
+        }
     
         int res = getMaxArrLength(arr);
-        System.out.println(res);
+
+        System.out.println("possible maximum length of subarray having zero sum is: " + res);
     }
 
     private static int getMaxArrLength(int[] arr) {
