@@ -19,6 +19,9 @@ public class question1 {
 
     private static boolean isAllNoTillNIsPresent(int[] arr) {
         // if all the elements are there from 1 to the array length in any sequence return true otherwise false.
+        // [4, 1, 5, 2, 3] => true
+        // [1, 2, 1, 4] => false
+        // [1, 2, 3, 4, 6] => false
         return false;
     }
 }
