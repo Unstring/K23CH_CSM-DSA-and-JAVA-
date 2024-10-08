@@ -22,6 +22,7 @@ public class question1 {
         // [4, 1, 5, 2, 3] => true
         // [1, 2, 1, 4] => false
         // [1, 2, 3, 4, 6] => false
+        // [4, 2, 5, 2, 2] => false
         return false;
     }
 }
